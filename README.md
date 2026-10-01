@@ -129,6 +129,49 @@ OPENROUTER_API_KEY=sk-or-...
 
 Per-profile configs handle the rest.
 
+## Client Questionnaire → Deploy Workflow (Option 4 / Generator)
+
+### Step 1: Fill Questionnaire
+```bash
+# Copy template, edit for client
+cp clients/template.yaml clients/john.yaml
+# Fill: name, role, telegram_id, priorities, transition goal, etc.
+```
+
+### Step 2: Generate & Deploy (Auto-Creates Profile + Memory)
+```bash
+python3 scripts/generate.py --client clients/john.yaml --env production
+```
+This creates:
+- Deployed profile (`~/.hermes/profiles/john/`)
+- Memory profile (`memories/USER.md` from questionnaire answers)
+- Parameterized prompts with client's context
+
+### Step 3: Create Cron Jobs
+```bash
+hermes cronjob create --prompt-file ~/.hermes/profiles/john/cron/client-daily-standup.prompt ...
+```
+
+### Step 4: Add Skills / Customize
+```bash
+# Add client-specific skills if needed
+mkdir -p ~/.hermes/profiles/john/skills/
+```
+
+### Client Questionnaire Sections
+- `profile_name` / `profile_type` — Profile identifier
+- `telegram_id` / `telegram_chats` — Routing
+- `client_name` / `client_role` / `client_transition` — Identity & goal
+- `client_priorities` — Standup content source
+- `daily_work` / `time_sinks` — Profile understanding
+- `transition_goal` / `blockers` — Strategic context (used in weekly/monthly prompts)
+- `format_pref` / `tone_pref` — Communication style (maps to `display.*` settings potential)
+- `proactivity` / `uncertainty_pref` — Behavior tuning (for memory/agent prompt)
+- `boundaries` — Guardrails (in USER.md memory)
+- `priorities_list` — Structured list for briefings
+
+See: [Client Questionnaire Guide](docs/CLIENT_QUESTIONNAIRE.md)
+
 ## Adding New Clients
 
 1. Run deploy script with client-specific parameters

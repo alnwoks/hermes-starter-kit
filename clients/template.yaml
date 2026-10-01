@@ -1,0 +1,61 @@
+# Client Questionnaire Template
+# Fill out this file, then run:
+# python3 scripts/generate.py --client clients/blessing.yaml --env production
+
+profile_name: blessing          # Profile directory name
+profile_type: client             # Must be "client" or "admin"
+
+# Telegram / Routing
+telegram_id: "7200670846"         # Client's Telegram user ID
+telegram_chats: "7200670846,-1004345112293"
+home_channel: "5446665128"         # Admin user ID for notifications
+
+# Client Identity
+client_name: "Blessing"
+client_role: "Customer Success & Operations"
+client_transition: "Transitioning to automation/AI workflow solutions"
+client_priorities: |
+  Building automation/AI skills,
+  Growing professional presence,
+  Finding income opportunities,
+  Creating productivity systems
+
+# Daily Context
+daily_work: |
+  Client management, communication follow-ups,
+  documentation, task coordination, reporting
+
+time_sinks: |
+  Client communication, follow-ups, data entry,
+  repetitive manual work, tracking multiple tasks
+
+# Transition Goal
+transition_goal: "Build automation/AI skills and create productivity systems that reduce manual work by 40%"
+
+# Blockers
+blockers: "Repetitive manual tasks, staying organized across clients, limited time for skill building"
+
+# Communication Preferences
+format_pref: "Concise structured bullet points with clear action steps"
+tone_pref: "Friendly, direct, practical, conversational"
+proactivity: "Very proactive — identify opportunities, suggest solutions"
+uncertainty_pref: "Ask when clarification is important; make reasonable assumptions when risk is low"
+
+# Boundaries (what NOT to do without approval)
+boundaries:
+  - "Never send important messages on client's behalf"
+  - "Never make financial commitments"
+  - "Never share sensitive/proprietary info"
+  - "Never make significant decisions"
+
+# Priorities List (for standup briefings)
+priorities_list:
+  - "Build automation/AI skills"
+  - "Grow professional presence"
+  - "Find income opportunities"
+  - "Create productivity systems"
+
+# Working Style
+working_style: |
+  Practical solutions, learns by doing, wants implementable suggestions.
+  Prefers comprehensive copy-paste ready prompts over file references.

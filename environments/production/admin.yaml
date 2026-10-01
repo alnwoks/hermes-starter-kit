@@ -1,0 +1,39 @@
+profile_name: admin-prod
+profile_type: admin
+
+# Telegram / Routing
+telegram_id: "5446665128"
+telegram_chats: "5446665128,-1004345112293"
+home_channel: "5446665128"
+
+# Admin Context
+admin_id: "5446665128"
+admin_role: "System Administrator / Operations Lead"
+
+# System Monitoring Priorities
+monitoring_focus: |
+  Gateway health, Telegram connectivity, profile health,
+  cron job success rates, disk/memory usage, error logs,
+  security (failed auth attempts, token expiry)
+
+# Alert Preferences
+alert_frequency: "hourly pulse + daily report + weekly deep dive"
+alert_channels: ["telegram"]
+critical_thresholds:
+  disk_warning: "85%"
+  disk_critical: "95%"
+  memory_warning: "500MB per Hermes process"
+  gateway_downtime: "5 minutes"
+
+# Security & Maintenance
+security_checks:
+  - "Failed auth attempts"
+  - "Token expiry status"
+  - "Profile drift detection"
+  - "Unused skills/log rotation"
+
+# Working Style
+working_style: |
+  Technical, verbose output preferred for debugging.
+  Full toolset access (computer_use, delegation, terminal, code_execution).
+  Proactive monitoring over reactive fixes.
