@@ -1,0 +1,75 @@
+model:
+  provider: nous
+  base_url: https://inference-api.nousresearch.com/v1
+  default: stepfun/step-3.7-flash:free
+fallback_providers:
+  - provider: openrouter
+    model: nvidia/nemotron-3-ultra-550b-a55b:free
+    base_url: https://openrouter.ai/api/v1
+    api_mode: chat_completions
+  - provider: openrouter
+    model: thinkingmachines/inkling:free
+    base_url: https://openrouter.ai/api/v1
+    api_mode: chat_completions
+agent:
+  max_turns: 50
+browser:
+  cloud_provider: local
+  use_gateway: false
+openrouter:
+  api_key: «redacted:sk-…»  # Set via env: OPENROUTER_API_KEY
+display:
+  personality: technical
+  tool_progress_command: full
+  tool_progress: verbose
+stt:
+  provider: local_command
+  local_command:
+    command: python3 /tmp/stt_speech.py {input_path}
+    model: speechrecognition-google
+    language: en
+telegram:
+  allowed_chats: ""  # Set per-admin: comma-separated chat IDs (admin DM + groups)
+approvals:
+  destructive_slash_confirm: true
+command_allowlist:
+  - script execution via -e/-c flag
+onboarding:
+  seen:
+    profile_build_offered: true
+    tool_progress_prompt: true
+    busy_input_prompt: true
+_config_version: 33
+session_reset:
+  mode: none
+TELEGRAM_HOME_CHANNEL: ""  # Set per-admin: admin user ID for notifications
+platform_toolsets:
+  cli:
+    - browser
+    - clarify
+    - code_execution
+    - computer_use
+    - cronjob
+    - delegation
+    - file
+    - image_gen
+    - memory
+    - session_search
+    - skills
+    - terminal
+    - todo
+    - tts
+    - vision
+    - web
+known_plugin_toolsets:
+  cli:
+    - spotify
+
+# Admin Profile Template
+# - Full system access, technical verbosity, all tools enabled
+# - REQUIRES PER-ADMIN CUSTOMIZATION:
+#   1. telegram.allowed_chats (admin DM + monitored groups)
+#   2. TELEGRAM_HOME_CHANNEL (admin user ID)
+#   3. Add admin-specific cron jobs to cron/
+#   4. Add admin-specific skills to skills/
+#   5. Add system memories to memories/

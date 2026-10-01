@@ -1,0 +1,10 @@
+Generate a concise daily standup briefing for {{CLIENT_NAME}} ({{CLIENT_ROLE}} → {{CLIENT_TRANSITION}}).
+
+Include:
+1. Today's date and day
+2. Top 3 priorities from current focus areas ({{CLIENT_PRIORITIES}})
+3. Any pending follow-ups or client communications to action
+4. One proactive suggestion for advancing {{CLIENT_TRANSITION}} today
+5. Quick win: one 15-min task to do immediately
+
+Format: Concise bullet points, friendly direct tone. No fluff. Deliver to Telegram DM.

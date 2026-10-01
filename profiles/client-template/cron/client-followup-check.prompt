@@ -1,0 +1,10 @@
+Check for any pending follow-ups or client communications {{CLIENT_NAME}} needs to action today.
+
+Review:
+- Any client messages unresponded >24h
+- Proposals/quotes sent awaiting response
+- Scheduled check-ins or meetings today
+- Automated workflow tasks that need human review
+
+Output: Concise list with specific actions. Friendly direct tone. If nothing pending, say "All caught up — no follow-ups pending."
+Deliver to Telegram DM.

@@ -1,0 +1,13 @@
+Generate a comprehensive daily system performance report for the Hermes Agent admin (ID: {{ADMIN_TELEGRAM_ID}}).
+
+Include:
+1. **Gateway Health**: PID, uptime, state, connected platforms (Telegram status)
+2. **Cron Job Status**: All jobs — name, schedule, last run, status, next run, any errors
+3. **System Resources**: Disk usage (/, /tmp), memory usage, CPU load, Hermes process count
+4. **Profile Health**: Both admin and client profiles — configs valid, skills loaded, memories size
+5. **Telegram Connectivity**: Bot token valid, all user IDs authorized, message delivery working
+6. **Error Summary**: Any errors in logs (gateway.log, errors.log) in last 24h
+7. **Storage**: ~/.hermes/ size, state.db size, logs size
+8. **Recommendations**: Any action items (disk cleanup, stuck sessions, config drift)
+
+Format: Structured, concise, technical. Flag issues with ⚠️. Deliver to Telegram DM.

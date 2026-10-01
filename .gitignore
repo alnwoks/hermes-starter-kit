@@ -1,0 +1,34 @@
+# Secrets - NEVER commit
+.env
+*.key
+*.pem
+auth.json
+*.secret
+
+# Runtime state
+gateway_state.json
+gateway.pid
+gateway.lock
+logs/
+state.db
+*.pid
+
+# Per-profile secrets (deployed, not in kit)
+profiles/*/.env
+profiles/*/memories/USER.md
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

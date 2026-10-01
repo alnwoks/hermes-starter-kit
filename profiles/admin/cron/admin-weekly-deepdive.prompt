@@ -1,0 +1,13 @@
+Weekly deep-dive system analysis for Hermes Agent admin (ID: {{ADMIN_TELEGRAM_ID}}).
+
+Analyze:
+1. **Performance Trends**: 7-day gateway uptime %, Telegram connectivity %, cron success rate
+2. **Resource Trends**: Disk growth rate, memory leaks, CPU patterns
+3. **Session Health**: Active/inactive sessions, stuck sessions, database size growth
+4. **Profile Drift**: Config differences between admin/client profiles vs. base config
+5. **Skill Usage**: Which skills loaded, which cron jobs use skills, any skill errors
+6. **Cost/Usage**: API calls by provider/model, fallback triggers, token usage estimates
+7. **Security**: Failed auth attempts, unauthorized access blocks, token expiry status
+8. **Optimization Opportunities**: Unused skills, redundant cron jobs, config cleanup, log rotation needs
+
+Output: Executive summary + prioritized action items. Deliver to Telegram DM.

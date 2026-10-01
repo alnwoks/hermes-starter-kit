@@ -1,0 +1,74 @@
+model:
+  provider: nous
+  base_url: https://inference-api.nousresearch.com/v1
+  default: stepfun/step-3.7-flash:free
+fallback_providers:
+  - provider: openrouter
+    model: nvidia/nemotron-3-ultra-550b-a55b:free
+    base_url: https://openrouter.ai/api/v1
+    api_mode: chat_completions
+  - provider: openrouter
+    model: thinkingmachines/inkling:free
+    base_url: https://openrouter.ai/api/v1
+    api_mode: chat_completions
+agent:
+  max_turns: 30
+browser:
+  cloud_provider: local
+  use_gateway: false
+openrouter:
+  api_key: «redacted:sk-…»  # Set via env: OPENROUTER_API_KEY
+display:
+  personality: concise
+  tool_progress_command: minimal
+  tool_progress: concise
+stt:
+  provider: local_command
+  local_command:
+    command: python3 /tmp/stt_speech.py {input_path}
+    model: speechrecognition-google
+    language: en
+telegram:
+  allowed_chats: ""  # Set per-client: comma-separated chat IDs (groups/channels)
+approvals:
+  destructive_slash_confirm: false
+command_allowlist:
+  - script execution via -e/-c flag
+onboarding:
+  seen:
+    profile_build_offered: true
+    tool_progress_prompt: true
+    busy_input_prompt: true
+_config_version: 33
+session_reset:
+  mode: none
+TELEGRAM_HOME_CHANNEL: ""  # Set per-client: admin user ID for notifications
+platform_toolsets:
+  cli:
+    - browser
+    - clarify
+    - code_execution
+    - cronjob
+    - file
+    - image_gen
+    - memory
+    - session_search
+    - skills
+    - todo
+    - tts
+    - vision
+    - web
+known_plugin_toolsets:
+  cli:
+    - spotify
+
+# Client Template Profile
+# - Focused toolset (no computer_use, delegation, terminal, code_execution)
+# - Concise display, proactive reminders via cron
+# - Client-focused memories
+# - REQUIRES PER-CLIENT CUSTOMIZATION:
+#   1. telegram.allowed_chats
+#   2. TELEGRAM_HOME_CHANNEL
+#   3. Add client-specific memories to memories/
+#   4. Add client-specific cron jobs to cron/
+#   5. Add client-specific skills to skills/

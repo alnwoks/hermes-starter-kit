@@ -1,0 +1,11 @@
+Perform a system health check for the Hermes Agent admin profile.
+
+Check:
+1. Gateway status (PID, uptime, connected platforms)
+2. Disk space on /root and /tmp
+3. Memory/CPU usage of Hermes processes
+4. Cron job status (list all, check for failures)
+5. Config validation (profiles exist, configs valid)
+6. Any error logs in ~/.hermes/logs/
+
+Output: Concise technical summary. Flag any issues needing attention. Deliver to Telegram DM.

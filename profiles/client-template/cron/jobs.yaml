@@ -1,0 +1,26 @@
+# Client Cron Jobs Template
+# Run: hermes cronjob create --prompt-file <file> --schedule <schedule> --deliver <target> --skills <skills>
+
+- name: "Client Daily Standup Briefing"
+  schedule: "0 7 * * *"
+  deliver: "telegram:{{CLIENT_TELEGRAM_ID}}"
+  skills: ["digital-assistant-workflow"]
+  prompt_file: "client-daily-standup.prompt"
+
+- name: "Client Follow-up Check"
+  schedule: "0 12 * * *"
+  deliver: "telegram:{{CLIENT_TELEGRAM_ID}}"
+  skills: ["digital-assistant-workflow"]
+  prompt_file: "client-followup-check.prompt"
+
+- name: "Client Weekly Review & Planning"
+  schedule: "0 9 * * 1"
+  deliver: "telegram:{{CLIENT_TELEGRAM_ID}}"
+  skills: ["digital-assistant-workflow"]
+  prompt_file: "client-weekly-review.prompt"
+
+- name: "Client Monthly Goal Check"
+  schedule: "0 8 1 * *"
+  deliver: "telegram:{{CLIENT_TELEGRAM_ID}}"
+  skills: ["digital-assistant-workflow"]
+  prompt_file: "client-monthly-goals.prompt"

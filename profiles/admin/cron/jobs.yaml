@@ -1,0 +1,26 @@
+# Admin Cron Jobs
+# Run: hermes cronjob create --prompt-file <file> --schedule <schedule> --deliver <target> --skills <skills>
+
+- name: "Admin Hourly Gateway & Telegram Pulse"
+  schedule: "0 * * * *"
+  deliver: "telegram:{{ADMIN_TELEGRAM_ID}}"
+  skills: ["hermes-agent-setup"]
+  prompt_file: "admin-hourly-pulse.prompt"
+
+- name: "Admin Daily System Performance Report"
+  schedule: "0 6 * * *"
+  deliver: "telegram:{{ADMIN_TELEGRAM_ID}}"
+  skills: ["hermes-agent-setup"]
+  prompt_file: "admin-daily-report.prompt"
+
+- name: "Admin System Health Check"
+  schedule: "0 */6 * * *"
+  deliver: "telegram:{{ADMIN_TELEGRAM_ID}}"
+  skills: ["hermes-agent-setup"]
+  prompt_file: "admin-health-check.prompt"
+
+- name: "Admin Weekly Deep Dive & Optimization"
+  schedule: "0 7 * * 0"
+  deliver: "telegram:{{ADMIN_TELEGRAM_ID}}"
+  skills: ["hermes-agent-setup"]
+  prompt_file: "admin-weekly-deepdive.prompt"

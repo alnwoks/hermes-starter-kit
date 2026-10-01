@@ -1,0 +1,13 @@
+Quick hourly pulse check for Hermes Agent admin (ID: {{ADMIN_TELEGRAM_ID}}).
+
+Check:
+1. **Gateway**: Running? PID? State? (running/stopped/error)
+2. **Telegram**: Connected? Last message timestamp? Any recent errors?
+3. **Active Agents**: Count of active agent sessions
+4. **Cron Jobs**: Any failed runs in last hour? Any stuck jobs?
+5. **Disk Alert**: /root usage >85%? /tmp usage >90%?
+6. **Memory Alert**: Hermes processes >500MB RSS?
+
+Output: One-line status if healthy ("✅ Gateway running, Telegram connected, 2 active agents, disk 72%, mem OK"). Detailed if issues found.
+
+Format: Ultra-concise. Only alert on problems. Deliver to Telegram DM.
