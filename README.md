@@ -159,6 +159,48 @@ state.db
 profiles/*/memories/USER.md  # Contains personal info
 ```
 
+## Quick Reference Commands
+
+### Deploy New Client
+```bash
+./scripts/deploy-profile.sh newclient client \
+  --telegram-id 123456789 \
+  --telegram-chats "123456789,-100..." \
+  --home-channel 5446665128 \
+  --client-name "Name" \
+  --client-role "Role" \
+  --client-transition "Goal"
+```
+
+### Deploy Admin
+```bash
+./scripts/deploy-profile.sh myadmin admin \
+  --telegram-id 5446665128 \
+  --telegram-chats "5446665128,-100..." \
+  --home-channel 5446665128
+```
+
+### Push Updates (with SSH)
+```bash
+cd /root/hermes-starter-kit && \
+GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" git push
+```
+
+### Migrate to New Machine
+```bash
+git clone git@github.com:alnwoks/hermes-starter-kit.git
+cd hermes-starter-kit
+python3 scripts/migrate-system.py --kit . --setup-env \
+  --profile myadmin:admin --profile blessing:client
+# Edit ~/.hermes/.env with real keys
+```
+
+### Export Live System to Kit
+```bash
+python3 scripts/export-system.py --output hermes-starter-kit \
+  --profiles admin blessing --include-global
+```
+
 ## Documentation
 
 - [Profile Setup](docs/PROFILE_SETUP.md)
